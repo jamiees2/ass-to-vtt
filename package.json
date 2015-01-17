@@ -1,0 +1,36 @@
+{
+  "name": "ass-to-vtt",
+  "version": "1.0.0",
+  "description": "Transform stream that converts ass files to vtt files (html5 video subtitles)",
+  "main": "index.js",
+  "bin": {
+    "ass-to-vtt": "./bin.js"
+  },
+  "scripts": {
+  },
+  "dependencies": {
+    "duplexify": "^3.2.0",
+    "minimist": "^1.1.0",
+    "pumpify": "^1.3.3",
+    "split2": "^0.2.1",
+    "through2": "^0.6.3"
+  },
+  "devDependencies": {
+    "concat-stream": "^1.4.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamiees2/srt-to-vtt.git"
+  },
+  "author": "James Sigurdarson (@jamiees2)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamiees2/ass-to-vtt/issues"
+  },
+  "homepage": "https://github.com/jamiees2/ass-to-vtt",
+  "keywords": [
+    "html5",
+    "video",
+    "subtitles"
+  ]
+}
