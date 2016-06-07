@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jamiees2/srt-to-vtt.git"
+    "url": "https://github.com/jamiees2/ass-to-vtt.git"
   },
   "author": "James Sigurdarson (@jamiees2)",
   "license": "MIT",

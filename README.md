@@ -1,6 +1,6 @@
 # ass-to-vtt
 
-Based on @mafintosh's work on srt-to-vtt
+Based on @mafintosh's work on [srt-to-vtt](https://github.com/mafintosh/srt-to-vtt).
 
 Transform stream that converts ass files to vtt files.
 vtt files are used to provide subtitles in html5 video
