@@ -3,18 +3,16 @@ var pumpify = require('pumpify')
 var through = require('through2')
 
 module.exports = function() {
-  var buf = []
-  var first = true
-  re_ass = new RegExp("Dialogue:\\s\\d," + // get time and subtitle
+  var re_ass = new RegExp("Dialogue:\\s\\d," + // get time and subtitle
         "(\\d+:\\d\\d:\\d\\d.\\d\\d)," +     // start time
         "(\\d+:\\d\\d:\\d\\d.\\d\\d)," +     // end time
         "([^,]*)," +                  // object
         "([^,]*)," +                  // actor
         "(?:[^,]*,){4}" +
-        "(.*)$", "i")                // subtitle
+        "(.*)$", "i");                // subtitle
 
-  re_newline = /\\n/ig // replace \N with newline
-  re_style = /\{([^}]+)\}/ // replace style
+  var re_newline = /\\n/ig; // replace \N with newline
+  var re_style = /\{([^}]+)\}/; // replace style
   var i = 1;
   var write = function(line, enc, cb) {
     var m = line.match(re_ass);
