@@ -87,6 +87,13 @@ module.exports = function() {
                 tagsToOpen.splice(0, 0, firstLetter);
               }
             }
+          } else if (firstLetter === 'r') {
+            // Resetting override tags, by closing all open tags.
+            // TODO: The 'r' tag can also be used to switch to a different named style,
+            // however, named styles haven't been implemented.
+            while ( tagsToClose.length > 0) {
+              replaceString += '</' + tagsToClose.pop() + '>';
+            }
           }
 
           // Insert open-tags for tags in the to-open list.
