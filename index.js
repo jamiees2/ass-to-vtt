@@ -11,7 +11,9 @@ module.exports = function() {
         "(?:[^,]*,){4}" +
         "(.*)$", "i");                // subtitle
 
-  var re_newline = /\\n/ig; // replace \N with newline
+  var re_newline = /\\N/g; // replace \N with newline
+  var re_softbreak = /\\n/g;    // There's no equivalent function in WebVTT.
+  var re_hardspace = /\\h/g;    // Replace with &nbsp;
   var re_style = /\{([^}]+)\}/; // replace style
   var i = 1;
   var write = function(line, enc, cb) {
@@ -20,6 +22,10 @@ module.exports = function() {
       return cb();
     }
     var start = m[1], end = m[2], what = m[3], actor = m[4], text = m[5];
+
+    // Support for special characters in WebVTT.
+    // For obvious reasons, the ampersand one *must* be first.
+    text = text.replace( /&/g, "&amp;").replace( /</g, "&lt;").replace( />/g, "&gt;");
 
     var style, pos_style = "", tagsToClose = []; // Places to stash style info.
     // Subtitles may contain any number of override tags, so we'll loop through
@@ -110,7 +116,8 @@ module.exports = function() {
       text = text.replace(re_style, replaceString); // Replace override tag.
     }
 
-    text = text.replace(re_newline, "\r\n");
+    text = text.replace(re_newline, "\r\n").replace(re_softbreak, " ").replace(
+      re_hardspace, "&nbsp;");
     var content = i + "\r\n"
     content += "0" + start + "0 --> 0" + end + "0" + pos_style + "\r\n"
     content += "<v " + what + " " + actor + ">" + text
