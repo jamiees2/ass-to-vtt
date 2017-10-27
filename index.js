@@ -30,8 +30,8 @@ module.exports = function() {
         style = style[1].split("\\"); // Get an array of override commands.
         for (var j = 1; j < style.length; j++) {
           // Extract the current tag name.
-	  var tagCommand = style[j].match( /[a-zA-Z]+/ )[0];
-	  // Give special reckognition to one-letter tags.
+          var tagCommand = style[j].match( /[a-zA-Z]+/ )[0];
+          // Give special reckognition to one-letter tags.
           var oneLetter = ( tagCommand.length == 1 ) ? tagCommand : "";
 
           // "New" position commands. It is assumed that bottom center position is the default.
