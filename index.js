@@ -69,7 +69,11 @@ module.exports = function() {
             // Map simple text decoration commands to equivalent WebVTT text tags.
             // NOTE: Strikethrough (the 's' tag) is not supported in WebVTT.
           } else if ( ['b', 'i', 'u', 's'].includes(oneLetter) ) {
-            if ( Number(style[j].substring(1,2)) === 0 ) {
+            if ( Number(style[j].substring(1,2)) === 0
+                 // The more elaborate 'b-tag', which we will treat as an on-off selector.
+                 || ( style[j].match( /b\d{3}/ )
+                      && Number(style[j].match( /b(\d{3})/ )[1]) < 500 )
+               ) {
               // Closing a tag.
               if ( tagsToClose.includes(oneLetter) ) {
                 // Nothing needs to be done if this tag isn't already open.
