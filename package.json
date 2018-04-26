@@ -1,6 +1,6 @@
 {
   "name": "ass-to-vtt",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Transform stream that converts ass files to vtt files (html5 video subtitles)",
   "main": "index.js",
   "bin": {
